@@ -1,4 +1,5 @@
 //Q72 Write a program to Sort array in descending order.
+//Done by selection sort technique
 #include<stdio.h>
 void InputArray(int arr[],int size)
 {
