@@ -1,6 +1,6 @@
 //Q103 Write a program to Create ATM simulation.
 #include<stdio.h>
-int CheckPin(pin)
+int CheckPin(int pin)
 {
     int x;
     printf("\nEnter your ATM PIN:- ");
@@ -18,37 +18,36 @@ int main()
 {
     int bal,pin;
     printf("Enter your account balance:- ");
-    scanf("&d",&bal);
+    scanf("%d",&bal);
     printf("Set four digit PIN for ATM:- ");
     scanf("%d",&pin);
-    int choice=0;
-    while(choice!=4)
+    char ch=' ';
+    while((ch!='N')&&(ch!='n'))
     {
-        int x=0;
+        int choice=0,x=0;
         printf("Select an option from the below menu:-\n");
         printf("1. Check Balance.\n");
         printf("2. Withdraw Money.\n");
         printf("3. Deposit Money.\n");
-        printf("4. Exit\n");
-        printf("Enter your choice (1,2,3,4):- ");
+        printf("Enter your choice (1,2,3):- ");
         scanf("%d",&choice);
         if(choice==1)
         {
-            if(CheckPin)
+            if(CheckPin(pin))
             {
                 printf("\nThe current balance in your account is:- %d",bal);
             }
             else
             {
                 printf("\nWrong PIN is entered.");
-                if(CheckPin)
+                if(CheckPin(pin))
                 {
                     printf("\nThe current balance in your account is:- %d",bal);
                 }
                 else
                 {
                     printf("\nWrong PIN is entered.");             
-                    if(CheckPin)
+                    if(CheckPin(pin))
                     {              
                         printf("\nThe current balance in your account is:- %d",bal);           
                     }          
@@ -66,7 +65,7 @@ int main()
             int amt;
             printf("\nEnter amount to be withdrawn:- ");
             scanf("%d",&amt);
-            if(CheckPin)
+            if(CheckPin(pin))
             {
                 if(amt<=bal)
                 {
@@ -81,7 +80,7 @@ int main()
             else
             {
                 printf("\nWrong PIN is entered.");
-                if(CheckPin)
+                if(CheckPin(pin))
                 {
                     if(amt<=bal)
                     {
@@ -96,7 +95,7 @@ int main()
                 else
                 {
                     printf("\nWrong PIN is entered.");             
-                    if(CheckPin)
+                    if(CheckPin(pin))
                     {              
                         if(amt<=bal)
                         {
@@ -117,11 +116,46 @@ int main()
                 }
             }
         }
-        elif(choice==3)
+        else if(choice==3)
         {
-            
+            int amt;
+            printf("\nEnter amount to be deposited:- ");
+            scanf("%d",&amt);
+            if(CheckPin(pin))
+            {
+                bal=bal+amt;
+                printf("\nDeposition of money is successful.");
+            }
+            else
+            {
+                printf("\nWrong PIN is entered.");
+                if(CheckPin(pin))
+                {
+                    bal=bal+amt;
+                    printf("\nDeposition of money is successful.");
+                }
+                else
+                {
+                    printf("\nWrong PIN is entered.");             
+                    if(CheckPin(pin))
+                    {              
+                        bal=bal+amt;
+                        printf("\nDeposition of money is successful.");  
+                    }          
+                    else          
+                    {               
+                        printf("\nWrong PIN is entered.");                
+                        printf("\nYour account is locked.");
+                        break;        
+                    }
+                }
+            }
         }
-        printf("Do you want to check again (y/n):- ");
+        else
+        {
+            printf("\nInvalid choice is entered.");
+        }
+        printf("\nDo you have other account inquiries (y/n):- ");
         scanf(" %c",&ch);
     }
 }
