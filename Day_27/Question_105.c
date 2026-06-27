@@ -21,6 +21,7 @@ int main()
         printf("1. Add a new student record.\n");
         printf("2. View a student record.\n");
         printf("3. Update a student record.\n");
+        printf("4. Delete a student record.\n");
         printf("Enter your choice (1,2,3,4):- ");
         scanf("%d",&choice);
         if(choice==1)
@@ -36,7 +37,7 @@ int main()
             printf("\nEnter CGPA of the student:- ");
             scanf("%f",&s[count].cgpa);
             count+=1;
-            printf("\nNew student record is added suceessfully.");
+            printf("\nNew student record is added successfully.");
         }
         else if(choice==2)
         {
@@ -87,7 +88,7 @@ int main()
                 printf("\nRecords that can be changed are:-");
                 printf("\n1. Name");
                 printf("\n2. Branch");
-                printf("\n3. semester");
+                printf("\n3. Semester");
                 printf("\n4. CGPA");
                 printf("\nEnter the record you want to change (1,2,3,4):- ");
                 scanf("%d",&rec);
