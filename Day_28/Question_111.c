@@ -1,6 +1,6 @@
 //Q111 Write a program to Create ticket booking system.
 #include<stdio.h>
-struct BankAccount
+struct Ticket
 {
         char name[50];
         int bookingid;
@@ -9,7 +9,7 @@ struct BankAccount
 };
 int main()
 {
-    struct BankAccount s[100];
+    struct Ticket s[100];
     printf("TICKET RECORD MANAGEMENT SYSTEM\n\n");
     char ch=' ';
     int count=0;
@@ -63,4 +63,92 @@ int main()
                 printf("\nTicket record is not found.");
             }
         }
-    }        
+        else if(choice==3)
+        {
+            int rn,flag=0,n;
+            printf("\nEnter the booking ID of the ticket whose record you want to update:- ");
+            scanf("%d",&rn);
+            for(int i=0;i<count;i++)
+            {
+                if(s[i].bookingid==rn)
+                {
+                    n=i;
+                    flag+=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nTicket record is found.");
+                printf("\nRecords that can be changed are:-");
+                printf("\n1. Name");
+                printf("\n2. Event ID");
+                printf("\n3. Seat number");
+                printf("\nEnter the record you want to change (1,2,3):- ");
+                scanf("%d",&rec);
+                if(rec==1)
+                {
+                    printf("\nEnter new name on the ticket:- ");
+                    scanf("%s",s[n].name);
+                    printf("\nTicket is updated successfully.");
+                }
+                else if(rec==2)
+                {
+                    printf("\nEnter new event ID of the ticket:- ");
+                    scanf("%d",&s[n].eventid);
+                    printf("\nTicket is updated successfully.");
+                }
+                else if(rec==3)
+                {
+                    printf("\nEnter new seat number of the ticket:- ");
+                    scanf("%d",&s[n].seatno);
+                    printf("\nTicket record is updated successfully.");
+                }
+                else
+                {
+                    printf("\nInvalid choice is entered.");
+                }
+            }
+            else
+            {
+                printf("\nTicket record is not found.");
+            }
+        }
+        else if(choice==4)
+        {
+            int rn,flag=0,n;
+            printf("\nEnter the booking ID of the ticket whose record you want to delete:- ");
+            scanf("%d",&rn);
+            for(int i=0;i<count;i++)
+            {
+                if(s[i].bookingid==rn)
+                {
+                    n=i;
+                    flag+=1;
+                    for(int j=i;j<count-1;j++)
+                    {
+                        s[j]=s[j+1];
+                    }
+                    count-=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nTicket record is found and deleted successfully.");
+            }
+            else
+            {
+                printf("\nTicket record is not found.");
+            }
+        }
+        else
+        {
+            printf("\nInvalid choice is entered.");
+        }
+        printf("\nDo you have other ticket inquiries (y/n):- ");
+        scanf(" %c",&ch);
+    }
+}
