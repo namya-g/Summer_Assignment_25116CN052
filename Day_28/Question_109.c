@@ -5,48 +5,45 @@ struct Library
         char name[50];
         int bookid;
         char author[50];
-        int is_issued;
-        float cgpa;
+        int status;
 };
 int main()
 {
-    struct Student s[100];
-    printf("STUDENT RECORD MANAGEMENT SYSTEM\n\n");
+    struct Library s[100];
+    printf("LIBRARY RECORD MANAGEMENT SYSTEM\n\n");
     char ch=' ';
     int count=0;
     while((ch!='N')&&(ch!='n'))
     {
         int choice=0;
         printf("Select an option from the below menu:-\n");
-        printf("1. Add a new student record.\n");
-        printf("2. View a student record.\n");
-        printf("3. Update a student record.\n");
-        printf("4. Delete a student record.\n");
+        printf("1. Add a new book record.\n");
+        printf("2. View a book record.\n");
+        printf("3. Update a book record.\n");
+        printf("4. Delete a book record.\n");
         printf("Enter your choice (1,2,3,4):- ");
         scanf("%d",&choice);
         if(choice==1)
         {
-            printf("\nEnter name of the student:- ");
+            printf("\nEnter name of the book:- ");
             scanf("%s",s[count].name);
-            printf("\nEnter roll number of the student:- ");
-            scanf("%d",&s[count].rollno);
-            printf("\nEnter branch of the student:- ");
+            printf("\nEnter book ID of the book:- ");
+            scanf("%d",&s[count].bookid);
+            printf("\nEnter author of the book:- ");
             scanf("%s",s[count].branch);
-            printf("\nEnter semester of the student:- ");
-            scanf("%d",&s[count].sem);
-            printf("\nEnter CGPA of the student:- ");
-            scanf("%f",&s[count].cgpa);
+            printf("\nEnter status of the book (1. Available 2. Issued):- ");
+            scanf("%d",&s[count].status);
             count+=1;
-            printf("\nNew student record is added successfully.");
+            printf("\nNew book record is added successfully.");
         }
         else if(choice==2)
         {
             int rn,flag=0,n;
-            printf("\nEnter the roll number of the student whose record you want to search:- ");
+            printf("\nEnter the book ID of the book whose record you want to search:- ");
             scanf("%d",&rn);
             for(int i=0;i<count;i++)
             {
-                if(s[i].rollno==rn)
+                if(s[i].bookid==rn)
                 {
                     n=i;
                     flag+=1;
@@ -55,22 +52,21 @@ int main()
             }
             if(flag==1)
             {
-                printf("\nStudent record is found.");
-                printf("\nName of the student:- %s",s[n].name);
-                printf("\nRoll number of the student:- %d",s[n].rollno);
-                printf("\nBranch of the student:- %s",s[n].branch);
-                printf("\nSemester of the student:- %d",s[n].sem);
-                printf("\nCGPA of the student:- %f",s[n].cgpa);
+                printf("\nBook record is found.");
+                printf("\nName of the book:- %s",s[n].name);
+                printf("\nBook ID of the book:- %d",s[n].bookid);
+                printf("\nAuthor of the book:- %s",s[n].author);
+                printf("\nStatus of the book:- %d",s[n].status);
             }
             else
             {
-                printf("\nStudent record is not found.");
+                printf("\nBook record is not found.");
             }
         }
         else if(choice==3)
         {
             int rn,flag=0,n;
-            printf("\nEnter the roll number of the student whose record you want to update:- ");
+            printf("\nEnter the book ID of the book whose record you want to update:- ");
             scanf("%d",&rn);
             for(int i=0;i<count;i++)
             {
@@ -84,33 +80,28 @@ int main()
             if(flag==1)
             {
                 int rec=0;
-                printf("\nStudent record is found.");
+                printf("\nBook record is found.");
                 printf("\nRecords that can be changed are:-");
                 printf("\n1. Name");
-                printf("\n2. Branch");
-                printf("\n3. Semester");
-                printf("\n4. CGPA");
-                printf("\nEnter the record you want to change (1,2,3,4):- ");
+                printf("\n2. Author");
+                printf("\n3. Status");
+                printf("\nEnter the record you want to change (1,2,3):- ");
                 scanf("%d",&rec);
                 if(rec==1)
                 {
-                    printf("\nEnter new name of the student:- ");
+                    printf("\nEnter new name of the book:- ");
                     scanf("%s",s[n].name);
+                    printf("\nBook record is updated successfully.");
                 }
                 else if(rec==2)
                 {
-                    printf("\nEnter new branch of the student:- ");
+                    printf("\nEnter new author of the book:- ");
                     scanf("%s",s[n].branch);
                 }
                 else if(rec==3)
                 {
-                    printf("\nEnter new semester of the student:- ");
+                    printf("\nEnter new status of the book:- ");
                     scanf("%d",&s[n].sem);
-                }
-                else if(rec==4)
-                {
-                    printf("\nEnter new CGPA of the student:- ");
-                    scanf("%f",&s[n].cgpa);
                 }
                 else
                 {
@@ -119,17 +110,17 @@ int main()
             }
             else
             {
-                printf("\nStudent record is not found.");
+                printf("\nBook record is not found.");
             }
         }
         else if(choice==4)
         {
             int rn,flag=0,n;
-            printf("\nEnter the roll number of the student whose record you want to delete:- ");
+            printf("\nEnter the roll number of the book whose record you want to delete:- ");
             scanf("%d",&rn);
             for(int i=0;i<count;i++)
             {
-                if(s[i].rollno==rn)
+                if(s[i].bookid==rn)
                 {
                     n=i;
                     flag+=1;
@@ -144,11 +135,11 @@ int main()
             if(flag==1)
             {
                 int rec=0;
-                printf("\nStudent record is found and deleted successfully.");
+                printf("\nBook record is found and deleted successfully.");
             }
             else
             {
-                printf("\nStudent record is not found.");
+                printf("\nBook record is not found.");
             }
         }
         else
