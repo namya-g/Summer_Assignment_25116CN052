@@ -31,7 +31,7 @@ int main()
             scanf("%d",&s[count].acc_no);
             printf("\nEnter balance of the bank account:- ");
             scanf("%lf",&s[count].balance);
-            printf("\nEnter status of the account (1. Active 2. Inactive):- ");
+            printf("\nEnter status of the bank account (1. Active 2. Inactive):- ");
             scanf("%d",&s[count].status);
             count+=1;
             printf("\nNew bank account record is added successfully.");
@@ -55,22 +55,22 @@ int main()
                 printf("\nBank account record is found.");
                 printf("\nName on the bank account:- %s",s[n].name);
                 printf("\nAccount number of the bank account:- %d",s[n].acc_no);
-                printf("\nBalance of the bank account:- %lf",&s[n].balance);
+                printf("\nBalance of the bank account:- %lf",s[n].balance);
                 printf("\nStatus of the bank account:- %d",s[n].status);
             }
             else
             {
-                printf("\nBook record is not found.");
+                printf("\nBank account record is not found.");
             }
         }
         else if(choice==3)
         {
             int rn,flag=0,n;
-            printf("\nEnter the book ID of the book whose record you want to update:- ");
+            printf("\nEnter the account number of the bank account whose record you want to update:- ");
             scanf("%d",&rn);
             for(int i=0;i<count;i++)
             {
-                if(s[i].bookid==rn)
+                if(s[i].acc_no==rn)
                 {
                     n=i;
                     flag+=1;
@@ -80,30 +80,30 @@ int main()
             if(flag==1)
             {
                 int rec=0;
-                printf("\nBook record is found.");
+                printf("\nBank account record is found.");
                 printf("\nRecords that can be changed are:-");
                 printf("\n1. Name");
-                printf("\n2. Author");
+                printf("\n2. Balance");
                 printf("\n3. Status");
                 printf("\nEnter the record you want to change (1,2,3):- ");
                 scanf("%d",&rec);
                 if(rec==1)
                 {
-                    printf("\nEnter new name of the book:- ");
+                    printf("\nEnter new name on the bank account:- ");
                     scanf("%s",s[n].name);
-                    printf("\nBook record is updated successfully.");
+                    printf("\nBank account is updated successfully.");
                 }
                 else if(rec==2)
                 {
-                    printf("\nEnter new author of the book:- ");
-                    scanf("%s",s[n].author);
-                    printf("\nBook record is updated successfully.");
+                    printf("\nEnter new balance of the bank account:- ");
+                    scanf("%lf",&s[n].balance);
+                    printf("\nBank account is updated successfully.");
                 }
                 else if(rec==3)
                 {
-                    printf("\nEnter new status of the book:- ");
+                    printf("\nEnter new status of the bank account:- ");
                     scanf("%d",&s[n].status);
-                    printf("\nBook record is updated successfully.");
+                    printf("\nBank account record is updated successfully.");
                 }
                 else
                 {
@@ -112,17 +112,17 @@ int main()
             }
             else
             {
-                printf("\nBook record is not found.");
+                printf("\nBank account record is not found.");
             }
         }
         else if(choice==4)
         {
             int rn,flag=0,n;
-            printf("\nEnter the book ID of the book whose record you want to delete:- ");
+            printf("\nEnter the account number of the bank account whose record you want to delete:- ");
             scanf("%d",&rn);
             for(int i=0;i<count;i++)
             {
-                if(s[i].bookid==rn)
+                if(s[i].acc_no==rn)
                 {
                     n=i;
                     flag+=1;
@@ -137,18 +137,18 @@ int main()
             if(flag==1)
             {
                 int rec=0;
-                printf("\nBook record is found and deleted successfully.");
+                printf("\nBank account record is found and deleted successfully.");
             }
             else
             {
-                printf("\nBook record is not found.");
+                printf("\nBank account record is not found.");
             }
         }
         else
         {
             printf("\nInvalid choice is entered.");
         }
-        printf("\nDo you have other book inquiries (y/n):- ");
+        printf("\nDo you have other bank account inquiries (y/n):- ");
         scanf(" %c",&ch);
     }
 }
