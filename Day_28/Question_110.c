@@ -25,7 +25,7 @@ int main()
         scanf("%d",&choice);
         if(choice==1)
         {
-            printf("\nEnter name onn the bank account:- ");
+            printf("\nEnter name on the bank account:- ");
             scanf("%s",s[count].name);
             printf("\nEnter account number of the bank account:- ");
             scanf("%d",&s[count].acc_no);
