@@ -37,4 +37,5 @@ int main()
         printf("Do you want to play again (y/n):- ");
         scanf(" %c",&ch);
     }
+    return 0;
 }

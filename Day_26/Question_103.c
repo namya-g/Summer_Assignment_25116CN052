@@ -158,4 +158,5 @@ int main()
         printf("\nDo you have other account inquiries (y/n):- ");
         scanf(" %c",&ch);
     }
+    return 0;
 }

@@ -151,4 +151,5 @@ int main()
         printf("\nDo you have other book inquiries (y/n):- ");
         scanf(" %c",&ch);
     }
+    return 0;
 }

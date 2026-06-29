@@ -28,4 +28,5 @@ int main()
         printf("Do you want to check again (y/n):- ");
         scanf(" %c",&ch);
     }
+    return 0;
 }

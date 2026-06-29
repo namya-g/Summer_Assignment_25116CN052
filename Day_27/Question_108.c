@@ -217,4 +217,5 @@ int main()
         printf("\nDo you have other student marksheet inquiries (y/n):- ");
         scanf(" %c",&ch);
     }
+    return 0;
 }
