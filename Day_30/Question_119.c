@@ -67,4 +67,96 @@ int main()
                 printf("\nEmployee record is not found.");
             }
         }
-        
+        else if(choice==3)
+        {
+            int emp,flag=0,n;
+            printf("\nEnter the employee ID of the employee whose record you want to update:- ");
+            scanf("%d",&emp);
+            for(int i=0;i<count;i++)
+            {
+                if(e[i].empid==emp)
+                {
+                    n=i;
+                    flag+=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nEmployee record is found.");
+                printf("\nRecords that can be changed are:-");
+                printf("\n1. Name");
+                printf("\n2. Department");
+                printf("\n3. Salary");
+                printf("\n4. Email ID");
+                printf("\nEnter the record you want to change (1,2,3,4):- ");
+                scanf("%d",&rec);
+                if(rec==1)
+                {
+                    printf("\nEnter new name of the employee:- ");
+                    scanf("%s",e[n].name);
+                }
+                else if(rec==2)
+                {
+                    printf("\nEnter new department of the employee:- ");
+                    scanf("%s",e[n].dept);
+                }
+                else if(rec==3)
+                {
+                    printf("\nEnter new salary of the employee:- ");
+                    scanf("%d",&e[n].sal);
+                }
+                else if(rec==4)
+                {
+                    printf("\nEnter new email ID of the employee:- ");
+                    scanf("%s",e[n].emailid);
+                }
+                else
+                {
+                    printf("\nInvalid choice is entered.");
+                }
+            }
+            else
+            {
+                printf("\nEmployee record is not found.");
+            }
+        }
+        else if(choice==4)
+        {
+            int emp,flag=0,n;
+            printf("\nEnter the employee ID of the employee whose record you want to delete:- ");
+            scanf("%d",&emp);
+            for(int i=0;i<count;i++)
+            {
+                if(e[i].empid==emp)
+                {
+                    n=i;
+                    flag+=1;
+                    for(int j=i;j<count-1;j++)
+                    {
+                        e[j]=e[j+1];
+                    }
+                    count-=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nEmployee record is found and deleted successfully.");
+            }
+            else
+            {
+                printf("\nEmployee record is not found.");
+            }
+        }
+        else
+        {
+            printf("\nInvalid choice is entered.");
+        }
+        printf("\nDo you have other employee inquiries (y/n):- ");
+        scanf(" %c",&ch);
+    }
+    return 0;
+}
