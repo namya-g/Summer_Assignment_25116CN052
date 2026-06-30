@@ -67,4 +67,96 @@ int main()
                 printf("\nStudent record is not found.");
             }
         }
-        
+        else if(choice==3)
+        {
+            int rn,flag=0,n;
+            printf("\nEnter the roll number of the student whose record you want to update:- ");
+            scanf("%d",&rn);
+            for(int i=0;i<count;i++)
+            {
+                if(s[i].rollno==rn)
+                {
+                    n=i;
+                    flag+=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nStudent record is found.");
+                printf("\nRecords that can be changed are:-");
+                printf("\n1. Name");
+                printf("\n2. Branch");
+                printf("\n3. Semester");
+                printf("\n4. CGPA");
+                printf("\nEnter the record you want to change (1,2,3,4):- ");
+                scanf("%d",&rec);
+                if(rec==1)
+                {
+                    printf("\nEnter new name of the student:- ");
+                    scanf("%s",s[n].name);
+                }
+                else if(rec==2)
+                {
+                    printf("\nEnter new branch of the student:- ");
+                    scanf("%s",s[n].branch);
+                }
+                else if(rec==3)
+                {
+                    printf("\nEnter new semester of the student:- ");
+                    scanf("%d",&s[n].sem);
+                }
+                else if(rec==4)
+                {
+                    printf("\nEnter new CGPA of the student:- ");
+                    scanf("%f",&s[n].cgpa);
+                }
+                else
+                {
+                    printf("\nInvalid choice is entered.");
+                }
+            }
+            else
+            {
+                printf("\nStudent record is not found.");
+            }
+        }
+        else if(choice==4)
+        {
+            int rn,flag=0,n;
+            printf("\nEnter the roll number of the student whose record you want to delete:- ");
+            scanf("%d",&rn);
+            for(int i=0;i<count;i++)
+            {
+                if(s[i].rollno==rn)
+                {
+                    n=i;
+                    flag+=1;
+                    for(int j=i;j<count-1;j++)
+                    {
+                        s[j]=s[j+1];
+                    }
+                    count-=1;
+                    break;
+                }
+            }
+            if(flag==1)
+            {
+                int rec=0;
+                printf("\nStudent record is found and deleted successfully.");
+            }
+            else
+            {
+                printf("\nStudent record is not found.");
+            }
+        }
+        else
+        {
+            printf("\nInvalid choice is entered.");
+        }
+        printf("\nDo you have other student inquiries (y/n):- ");
+        scanf(" %c",&ch);
+    }
+    return 0;
+}
